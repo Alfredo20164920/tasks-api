@@ -21,7 +21,10 @@ public class Task
     public Priority TaskPriority { get; set; }
     public DateTime DateCreated { get; set; }
 
-    public virtual Category Category { get; set; }
+    public virtual Category? Category { get; set; }
+
+    [NotMapped]
+    public string? Resumen {get; set;}
 }
 
 public enum Priority

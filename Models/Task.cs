@@ -1,11 +1,23 @@
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace ef_tasks.Models;
 
 public class Task
 {
+    [Key]
     public Guid TaskId { get; set; }
+
+    [ForeignKey("CategoryId")]
     public Guid CategoryId { get; set; }
-    public string Title { get; set; }
-    public string Description { get; set; }
+
+    [Required]
+    [MaxLength(150)]
+    [MinLength(3)]
+    public string? Title { get; set; }
+
+    [MinLength(3)]
+    public string? Description { get; set; }
     public Priority TaskPriority { get; set; }
     public DateTime DateCreated { get; set; }
 
